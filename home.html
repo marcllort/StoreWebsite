@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Pràctica 1 - List View</title>
+        <meta name="author" content="@luis.ribo">
+        <meta name="description" content="Pràctica 1 - List View">
+        <meta name="keywords" content="html css js projectes web">
+        <meta charset="UTF-8">
+        <meta name="robots" content="all">
+        <meta name="robots" content="nofollow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles_list.css">
+        <link rel="stylesheet" href="styles_header_list.css">
+        <link rel="stylesheet" href="reset.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    </head>
+    <body style="margin: 0px;">
+        <header>
+            <div id="header-desktop">
+                <nav class="nav-desktop">
+                    <ul class="menudesktop ul">
+                        <li class="ul-li" onclick="canviarHTML('home')">HOME</li>
+                        <li id="list" class="ul-li">LIST</li>
+                        <li id="cart-desktop" class="ul-li" onclick="canviarHTML('cart')">CART</li>
+                        <li class="ul-li">FAVORITE</li>
+                    </ul>
+                </nav>
+                <h1 id="logo2" onclick="canviarHTML('home')">goggles</h1>
+                <div id="search2">
+                    <input id="search-input-desktop" type="text" maxlength="50" placeholder="Buscador" name="Buscador" class="search-input input">
+                    <img src="iconos/buscar.svg" alt="Icono Buscar" id="iconoBuscador"> 
+                </div>
+                
+                
+            </div>
+            <div id="header-principal">
+                <!--img onclick="obraMenu()" src="iconos/menu.svg" alt="Icono Menú" id="icon-header-left"-->
+                <div id="menu-animacio" onclick="obraMenu()">
+                    <span class = "span" id="span-adalt"></span>
+                    <span class = "span" id="span-mig"></span>
+                    <span class = "span" id="span-abaix"></span>
+                </div>
+                <h1 id="logo">goggles</h1>
+                <img onclick="obraBuscador()" src="iconos/buscar.svg" alt="Icono Buscar" id="icon-header-right">  
+            </div>
+            <!--div>
+                <img onclick="tancaMenu()" src="iconos/creu.svg" alt="Icono Creu" id="icon-creu-menu">
+            </div>
+            <div class="creu-buscador">
+                <img onclick="tancaBuscador()" src="iconos/creu.svg" alt="Icono Creu" id="icon-creu-buscador">
+            </div-->
+            <section class="section">
+                <nav id="nav-menu">
+                    <ul class="ul">
+                        <li class="ul-li" onclick="canviarHTML('home')">HOME</li>
+                        <li id="list2" class="ul-li">LIST</li>
+                        <li class="ul-li">SEARCH</li>
+                        <li id="cart-mobile" class="ul-li" onclick="canviarHTML('cart')">CART</li>
+                        <li class="ul-li">FAVORITE</li>
+                    </ul>
+                </nav>
+                <div class="centrar-buscador">
+                    <div id="search">
+                        <input id="search-input-mobile" type="text" maxlength="50" placeholder="Buscador" name="Buscador" class="search-input input">
+                    </div>
+                </div>
+        
+            </section>
+        </header>
+        <div id="list-container" class="list-animation">
+            <nav id="top-menu">
+                <div class="header-scrollbar-wrap">
+                    <div class="header-scrollbar">
+                        <a href="" class="header-scrollbar-item"><h4 style="margin-right: 20px;">ALL</h4></a>
+                        <a href="" class="header-scrollbar-item"><h4 style="margin-right: 20px;">CLASSIC</h4></a>
+                        <a href="" class="header-scrollbar-item"><h4 style="margin-right: 20px;">NEW</h4></a>
+                        <a href="" class="header-scrollbar-item"><h4 style="margin-right: 20px;">CHIC</h4></a>
+                        <a href="" class="header-scrollbar-item"><h4 style="margin-right: 20px;">GRAND</h4></a>
+                        <a href="" class="header-scrollbar-item"><h4 style="margin-right: 20px;">ORIGINAL</h4></a>
+                        <a href="" class="header-scrollbar-item"><h4 style="margin-right: 20px;">TEST</h4></a>
+                    </div>
+                </div>
+            </nav>
+            <section id="items-section">
+                <!-- Populated info with API call -->
+            </section>
+            <footer>
+                <!-- TODO -->
+            </footer>
+        </div>
+        <section id="hidden-item-bottom" itemscope itemtype="http://schema.org/Product" class="item-color-bg hidden">
+            <button id="button-buy" class="bg-orange white-text roboto-font" onclick="addItemToChart()">BUY</button>
+            <!-- Details section not present in API information, excluded -->
+            <!--
+                <div class="details-section">
+                    <h4 class="roboto-font gray-text-light title-type">Details</h4>
+                    <div class="bottom-content-div">
+                        <div itemscope itemtype="http://schema.org/PropertyValue">
+                            <h3 itemprop="value" class="roboto-font">40mm</h3>
+                            <p itemprop="name" class="roboto-font">Lenses diameter</p>
+                        </div>
+                        <div itemscope itemtype="http://schema.org/PropertyValue">
+                            <h3 itemprop="value" class="roboto-font">Titanium</h3>
+                            <p itemprop="name" class="roboto-font">Bridge material</p>
+                        </div>
+                        <div itemscope itemtype="http://schema.org/PropertyValue">
+                            <h3 itemprop="value" class="roboto-font">Plastic</h3>
+                            <p itemprop="name" class="roboto-font">Rims material</p>
+                        </div>
+                    </div>
+                </div>
+            -->
+            <div id="description-section">
+                <h4 class="roboto-font gray-text-light title-type">Description</h4>
+                <div class="bottom-content-div">
+                    <div>
+                        <p id="description-content" itemprop="description" class="roboto-font"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <button id="button-like" class="bg-orange hidden" onclick="likeGlasses()"><img id="like-icon" src="./assets_item/heart-regular.svg" alt="Me gusta"></button>
+        <div itemscope itemtype="http://schema.org/PropertyValue">
+            <select onchange="onChangeSelect()" id="color-selector" class="white-text roboto-font">
+            </select>
+            <h3 itemprop="name" id="color-text" class="white-text roboto-font">Version and color: </h3>
+        </div>
+        <h3 id="price-text" class="white-text roboto-font">Price:</h3>
+
+        <ul class="navbar">
+            <li><a href="#compass"><img src="assets/compass.svg" alt="Compass" height="25" width="25" /></a></li>
+            <li><a href="#list"><img src="assets/list.svg" alt="list" height="25" width="25" /></a></li>
+            <li><a href="#shop"><img src="assets/heart.svg" alt="heart" height="25" width="25" /></a></li>
+            <li><a href="#heart"><img src="assets/shop.svg" alt="shop" height="25" width="25" /></a></li>
+        </ul>
+
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="./api_list.js"></script>
+        <script src="./animations_list.js"></script>
+    </body>
+</html>

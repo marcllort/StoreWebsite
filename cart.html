@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Practica F1 de Proyectos Web 1, La Salle">
+    <meta name="keywords" content="HTML,CSS,JavaScript, Ejercicio 2, Projectes Web">
+    <meta name="author" content="Marc Llort Maulion">
+    <title>Practica F1 - Payment</title>
+    <link rel="stylesheet" href="styles_buy.css">
+    <link rel="stylesheet" href="styles_header_buy.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="script_header_animations.js"></script>
+    <script src="script_header.js"></script>
+    <script src="script_buy.js"></script>
+
+</head>
+
+<body>
+    <header class="header-total">
+        <div id="header-desktop">
+            <nav class="nav-desktop">
+                <ul class="menudesktop ul">
+                    <li class="ul-li" onclick="canviarHTML('home')">HOME</li>
+                    <li id="list" class="ul-li">LIST</li>
+                    <li id="cart-desktop" class="ul-li" onclick="obraCartDesktop()">CART</li>
+                    <li class="ul-li">FAVORITE</li>
+                </ul>
+            </nav>
+            <a href="home.html"><h1 id="logo2">goggles</h1></a>
+            <div id="search2">
+                <input type="text" maxlength="50" placeholder="Buscador" name="Buscador" class="search-input input">
+                <img src="iconos/buscar.svg" alt="Icono Buscar" id="iconoBuscador">
+            </div>
+        </div>
+        <div id="header-principal">
+            <div id="menu-animacio" onclick="obraMenu2()">
+                <span class="span" id="span-adalt"></span>
+                <span class="span" id="span-mig"></span>
+                <span class="span" id="span-abaix"></span>
+            </div>
+            <a href="home.html"><h1 id="logo">goggles</h1></a>
+            <img onclick="obraBuscadorURL()" src="iconos/buscar.svg" alt="Icono Buscar" id="icon-header-right">
+        </div>
+        <section class="section">
+            <nav id="nav-menu">
+                <ul class="ul">
+                    <br>
+                    <br>
+                    <li class="ul-li" onclick="canviarHTML('home')">HOME</li>
+                    <li id="list2" class="ul-li">LIST</li>
+                    <li class="ul-li">SEARCH</li>
+                    <li id="cart-mobile" class="ul-li" onclick="canviaCard()">CART</li>
+                    <li class="ul-li">FAVORITE</li>
+                </ul>
+            </nav>
+            <div class="centrar-buscador">
+                
+                    <div id="search">
+                        <input type="text" maxlength="50" placeholder="Buscador" name="Buscador" class="search-input input">
+                    </div>
+            
+            </div>
+        </section>
+    </header>
+    <div class="container">
+        <div class="cart" id="alex">
+            <form>
+                <h1>Cart</h1>
+                <br>
+                <div id="container"></div>
+                <br>
+                <br>
+                Discount Code<br>
+                <br>
+                <div class="rcornersin">
+                    <input class="inputdiscount2" type="text" />
+                    <input class="inputdiscount1" type="submit" value="APPLY" />
+                </div>
+                <br><br>
+                <div class="total">
+                    TOTAL
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="alignright">
+                    <input id=price1 class=rcornersauto type="text" value="0" readonly>
+                </div>
+                <br>
+                <br>
+                <br>
+                <input type='button' class="rcorners-button2" value="Check out" onclick="takeStock(); canviaPayment()">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </form>
+        </div>
+        <div class="card" id="marc">
+            <form>
+                <h1>PAYMENT</h1>
+                <br><br>
+                ADDRESS<br>
+                <input id="myInput" list="huge_list" class="rcorners Input-text" type="text" name="address">
+                <datalist id="huge_list">
+                </datalist>
+                <br><br>
+                SHIPPING
+                <br>
+                <input id="shippingInput" class="rcorners Input-text" type="text" name="shipping"
+                    placeholder="   Free shipping worldwide">
+                <br><br>
+                PAYMENT METHOD
+                <br>
+
+                <div class="cc-selector">
+                    <input id="visa" type="radio" name="credit-card" value="visa" />
+                    <label class="drinkcard-cc visa" for="visa"></label>
+                    <input id="paypal" type="radio" name="credit-card" value="paypal" />
+                    <label class="drinkcard-cc paypal" for="paypal"></label>
+                </div>
+
+                <br><br>
+
+                <input id=price class="rcorners align-right" type="text" value="€" readonly>
+                <p id=total-text class="align-right">TOTAL</p>
+                <br><br><br>
+                <input id="btnComplete" class="btn rcorners-button" type="submit" value="Complete">
+            </form>
+        </div>
+        <ul class="navbar">
+            <li><a href="#compass"><img src="assets/compass.svg" alt="Compass" height="25" width="25" /></a></li>
+            <li><a href="#list"><img src="assets/list.svg" alt="list" height="25" width="25" /></a></li>
+            <li><a href="#shop"><img src="assets/heart.svg" alt="heart" height="25" width="25" /></a></li>
+            <li><a href="#heart"><img src="assets/shop.svg" alt="shop" height="25" width="25" /></a></li>
+        </ul>
+        <div itemscope="" itemtype="http://schema.org/Product">
+            <meta itemprop="name" content="Compra" />
+            <div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+                <meta itemprop="price" content="300" />
+                <meta itemprop="priceCurrency" content="EUR" />
+                <meta itemprop="availability" content="InStock" />
+                <link itemprop="acceptedPaymentMethod" href="http://purl.org/goodrelations/v1#PayPal" />
+                <link itemprop="acceptedPaymentMethod"
+                    href=" http://purl.org/goodrelations/v1#PaymentMethodCreditCard" />
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script_payment_buy.js"></script>
+<script src="./animations_list.js"></script>
+</html>
